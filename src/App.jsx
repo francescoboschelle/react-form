@@ -38,12 +38,12 @@ function App() {
     <>
       <div className="container">
         <h1 className="text-center mt-5 mb-5">Lista Task</h1>
-        <ul className="list-group">
+        <ul className="list-group bg-rainbow">
           {tasks.map((task, index) => {
             return (
               <li
                 key={index}
-                className="list-group-item d-flex justify-content-between"
+                className="list-group-item d-flex justify-content-between bg-transparent"
               >
                 <input
                   type="text"
