@@ -18,6 +18,13 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  function handleChange(value, index) {
+    const newArr = [...tasks];
+    newArr[index] = value;
+
+    setTasks(newArr);
+  }
+
   return (
     <>
       <div className="container">
@@ -26,7 +33,13 @@ function App() {
           {tasks.map((task, index) => {
             return (
               <li key={index} className="list-group-item">
-                {task}
+                <input
+                  type="text"
+                  className="form-control border-0"
+                  style={{ maxWidth: "fit-content" }}
+                  value={task}
+                  onChange={(e) => handleChange(e.target.value, index)}
+                />
               </li>
             );
           })}
