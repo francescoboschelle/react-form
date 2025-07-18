@@ -47,7 +47,7 @@ function App() {
               >
                 <input
                   type="text"
-                  className="form-control border-0"
+                  className="form-control border-0 bg-opacity-50 bg-white"
                   style={{ maxWidth: "fit-content" }}
                   value={task}
                   onChange={(e) => handleChange(e.target.value, index)}
