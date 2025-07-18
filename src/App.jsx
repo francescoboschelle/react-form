@@ -15,12 +15,21 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (newTask === "") return;
+
     setTasks([...tasks, newTask]);
   }
 
   function handleChange(value, index) {
     const newArr = [...tasks];
     newArr[index] = value;
+
+    setTasks(newArr);
+  }
+
+  function handleRemove(i) {
+    const newArr = [...tasks];
+    newArr.splice(i, 1);
 
     setTasks(newArr);
   }
@@ -32,7 +41,10 @@ function App() {
         <ul className="list-group">
           {tasks.map((task, index) => {
             return (
-              <li key={index} className="list-group-item">
+              <li
+                key={index}
+                className="list-group-item d-flex justify-content-between"
+              >
                 <input
                   type="text"
                   className="form-control border-0"
@@ -40,6 +52,14 @@ function App() {
                   value={task}
                   onChange={(e) => handleChange(e.target.value, index)}
                 />
+
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => handleRemove(index)}
+                >
+                  <i className="bi bi-trash3"></i>
+                </button>
               </li>
             );
           })}
